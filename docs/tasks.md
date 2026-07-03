@@ -47,8 +47,52 @@
 | T-010 | Slider 숫자 입력 다루기 | 4 | Done | `lib/learning/labs/lab_t010_slider_input.dart`, `test/widget_test.dart`, `docs/concepts/t010-slider-input.md` |
 | T-011 | GestureDetector와 InkWell로 탭 제스처 다루기 | 4 | Done | `lib/learning/labs/lab_t011_gesture_input.dart`, `test/widget_test.dart`, `docs/concepts/t011-gesture-input.md` |
 | T-012 | Dismissible로 스와이프 삭제 리스트 만들기 | 4 | Done | `lib/learning/labs/lab_t012_dismissible_list.dart`, `test/widget_test.dart`, `docs/concepts/t012-dismissible-list.md` |
+| T-013 | Navigator로 목록에서 상세 화면 이동하기 | 5 | Done | `lib/learning/labs/lab_t013_navigation_detail.dart`, `test/widget_test.dart`, `docs/concepts/t013-navigation-detail.md` |
 
 ## Done
+
+### T-013 Navigator로 목록에서 상세 화면 이동하기
+
+목표:
+
+- 목록 항목을 탭해 상세 화면으로 이동한다.
+- `Navigator.push`와 `MaterialPageRoute`의 역할을 익힌다.
+- 선택한 항목 데이터를 상세 화면 생성자 인자로 전달한다.
+- 상세 화면에서 뒤로가기로 목록 화면에 돌아온다.
+
+구현 파일:
+
+- `lib/learning/labs/lab_t013_navigation_detail.dart`
+- `lib/learning/lessons.dart`
+- `test/widget_test.dart`
+- `docs/concepts/t013-navigation-detail.md`
+
+구현 결과:
+
+- `LabT013NavigationDetail` 위젯을 추가했다.
+- T-013을 레슨 그리드에 등록했다.
+- 글 목록에서 항목을 탭하면 `Article Detail` 화면으로 이동한다.
+- 상세 화면은 선택한 항목의 제목, 요약, 상세 설명을 표시한다.
+- 뒤로가기 버튼으로 목록 화면에 돌아올 수 있다.
+
+검증 결과:
+
+- `dart format lib\learning\labs\lab_t013_navigation_detail.dart lib\learning\lessons.dart test\widget_test.dart`: 통과
+- `flutter analyze`: 통과, `No issues found!`
+- `flutter test`: 통과, `All tests passed!`
+
+사용자 런타임 체크리스트:
+
+- [ ] `flutter run -d chrome` 또는 IDE 실행 버튼으로 앱을 실행한다.
+- [ ] 메인 그리드에 `T-013` 버튼이 등록되어 있는지 확인한다.
+- [ ] `T-013` 버튼을 눌렀을 때 `T-013 Navigation Detail` 화면으로 이동하는지 확인한다.
+- [ ] `Route arguments` 항목을 탭하면 `Article Detail` 화면으로 이동하는지 확인한다.
+- [ ] 상세 화면에 `Route arguments` 제목과 `Detail:` 문구가 보이는지 확인한다.
+- [ ] 뒤로가기 버튼으로 목록 화면에 돌아오는지 확인한다.
+
+개념 노트:
+
+- `docs/concepts/t013-navigation-detail.md`
 
 ### T-012 Dismissible로 스와이프 삭제 리스트 만들기
 

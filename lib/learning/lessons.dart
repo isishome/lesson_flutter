@@ -11,6 +11,7 @@ import 'package:first_flutter_app/learning/labs/lab_t009_radio_selection.dart';
 import 'package:first_flutter_app/learning/labs/lab_t010_slider_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t011_gesture_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t012_dismissible_list.dart';
+import 'package:first_flutter_app/learning/labs/lab_t013_navigation_detail.dart';
 
 class LessonDefinition {
   const LessonDefinition({
@@ -98,5 +99,11 @@ final List<LessonDefinition> lessons = [
     title: 'Dismissible List',
     summary: 'Dismissible and swipe delete',
     builder: (_) => const LabT012DismissibleList(),
+  ),
+  LessonDefinition(
+    id: 'T-013',
+    title: 'Navigation Detail',
+    summary: 'Navigator.push and detail screen',
+    builder: (_) => const LabT013NavigationDetail(),
   ),
 ];

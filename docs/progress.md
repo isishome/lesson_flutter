@@ -437,3 +437,28 @@
 
 - 사용자가 직접 확인합니다.
 - 체크리스트는 `docs/tasks.md`의 T-012 완료 기록에 남겼습니다.
+
+## T-013 완료 기록
+
+날짜: 2026-07-03
+
+태스크: Navigator로 목록에서 상세 화면 이동하기
+
+구현:
+
+- `lib/learning/labs/lab_t013_navigation_detail.dart`에 `LabT013NavigationDetail`을 추가했습니다.
+- `lib/learning/lessons.dart`에 T-013 레슨을 등록했습니다.
+- `Navigator.push`, `MaterialPageRoute`, `ListView.separated`, `ListTile.onTap`, 생성자 인자 전달을 사용했습니다.
+- `test/widget_test.dart`에서 목록 항목 탭 후 상세 화면 이동, 데이터 표시, 뒤로가기 복귀를 검증했습니다.
+- `docs/concepts/t013-navigation-detail.md`에 개념 설명을 추가했습니다.
+
+검증:
+
+- `dart format lib\learning\labs\lab_t013_navigation_detail.dart lib\learning\lessons.dart test\widget_test.dart`: 통과
+- `flutter analyze`: 통과, `No issues found!`
+- `flutter test`: 통과, `All tests passed!`
+
+런타임:
+
+- 사용자가 직접 확인합니다.
+- 체크리스트는 `docs/tasks.md`의 T-013 완료 기록에 남겼습니다.

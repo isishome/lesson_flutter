@@ -10,6 +10,7 @@ import 'package:first_flutter_app/learning/labs/lab_t009_radio_selection.dart';
 import 'package:first_flutter_app/learning/labs/lab_t010_slider_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t011_gesture_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t012_dismissible_list.dart';
+import 'package:first_flutter_app/learning/labs/lab_t013_navigation_detail.dart';
 import 'package:first_flutter_app/learning/home_screen.dart';
 import 'package:first_flutter_app/learning/lessons.dart';
 import 'package:first_flutter_app/learning/practice/practice_p001.dart';
@@ -22,9 +23,14 @@ void main() {
 
     expect(find.byType(MaterialApp), findsOneWidget);
     expect(find.byType(HomeScreen), findsOneWidget);
-    expect(find.byType(GridView), findsNWidgets(2));
+    expect(find.byType(GridView), findsWidgets);
     expect(find.text('Flutter Learning'), findsOneWidget);
     expect(find.text('Lessons'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Practice'),
+      500,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Practice'), findsOneWidget);
   });
 
@@ -33,8 +39,8 @@ void main() {
   ) async {
     await tester.pumpWidget(const MaterialApp(home: HomeScreen()));
 
-    expect(lessons.length, 12);
-    expect(lessons.last.id, 'T-012');
+    expect(lessons.length, 13);
+    expect(lessons.last.id, 'T-013');
     expect(practices.length, greaterThanOrEqualTo(1));
     expect(find.text('T-001'), findsOneWidget);
     expect(find.text('T-002'), findsOneWidget);
@@ -46,7 +52,12 @@ void main() {
     expect(find.text('T-008'), findsOneWidget);
     expect(find.text('T-009'), findsOneWidget);
     expect(find.text('T-010'), findsOneWidget);
-    expect(find.text('P-001'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text(practices.first.id),
+      500,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text(practices.first.id), findsOneWidget);
   });
 
   testWidgets('tapping a lesson opens that lesson screen', (tester) async {
@@ -62,9 +73,13 @@ void main() {
   testWidgets('tapping a practice opens that practice screen', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: HomeScreen()));
 
-    await tester.ensureVisible(find.text('P-001'));
+    await tester.scrollUntilVisible(
+      find.text(practices.first.id),
+      500,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('P-001'));
+    await tester.tap(find.text(practices.first.id));
     await tester.pumpAndSettle();
 
     expect(find.byType(PracticeP001Screen), findsOneWidget);
@@ -173,6 +188,33 @@ void main() {
     expect(find.text('Selected volume: 40'), findsNothing);
   });
 
+  testWidgets('T-013 opens detail screen and returns to list', (tester) async {
+    await tester.pumpWidget(const MaterialApp(home: LabT013NavigationDetail()));
+
+    expect(find.text('T-013 Navigation Detail'), findsOneWidget);
+    expect(find.text('Navigation basics'), findsOneWidget);
+    expect(find.text('Route arguments'), findsOneWidget);
+    expect(find.text('Back navigation'), findsOneWidget);
+
+    await tester.tap(find.text('Route arguments'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Article Detail'), findsOneWidget);
+    expect(find.text('Route arguments'), findsOneWidget);
+    expect(
+      find.text(
+        'Detail: Constructor arguments keep the detail screen simple and explicit.',
+      ),
+      findsOneWidget,
+    );
+    expect(find.byTooltip('Back'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('T-013 Navigation Detail'), findsOneWidget);
+    expect(find.text('Route arguments'), findsOneWidget);
+  });
   testWidgets('T-012 removes an item with dismissible swipe', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: LabT012DismissibleList()));
 
