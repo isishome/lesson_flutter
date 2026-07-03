@@ -46,8 +46,52 @@
 | T-009 | Radio 단일 선택 다루기 | 4 | Done | `lib/learning/labs/lab_t009_radio_selection.dart`, `test/widget_test.dart`, `docs/concepts/t009-radio-selection.md` |
 | T-010 | Slider 숫자 입력 다루기 | 4 | Done | `lib/learning/labs/lab_t010_slider_input.dart`, `test/widget_test.dart`, `docs/concepts/t010-slider-input.md` |
 | T-011 | GestureDetector와 InkWell로 탭 제스처 다루기 | 4 | Done | `lib/learning/labs/lab_t011_gesture_input.dart`, `test/widget_test.dart`, `docs/concepts/t011-gesture-input.md` |
+| T-012 | Dismissible로 스와이프 삭제 리스트 만들기 | 4 | Done | `lib/learning/labs/lab_t012_dismissible_list.dart`, `test/widget_test.dart`, `docs/concepts/t012-dismissible-list.md` |
 
 ## Done
+
+### T-012 Dismissible로 스와이프 삭제 리스트 만들기
+
+목표:
+
+- 리스트 항목을 옆으로 밀어 삭제하는 UI를 만든다.
+- `Dismissible`의 `key`, `background`, `secondaryBackground`, `onDismissed` 역할을 익힌다.
+- 삭제된 항목을 상태 리스트에서 제거하고 남은 항목 수를 갱신한다.
+
+구현 파일:
+
+- `lib/learning/labs/lab_t012_dismissible_list.dart`
+- `lib/learning/lessons.dart`
+- `test/widget_test.dart`
+- `docs/concepts/t012-dismissible-list.md`
+
+구현 결과:
+
+- `LabT012DismissibleList` 위젯을 추가했다.
+- T-012를 레슨 그리드에 등록했다.
+- `Read docs`, `Write code`, `Run tests` 항목을 리스트로 표시한다.
+- 항목을 옆으로 밀면 리스트에서 삭제된다.
+- 삭제 후 `Remaining items: <개수>`와 `Removed: <항목>` 문구가 갱신된다.
+
+검증 결과:
+
+- `dart format lib\learning\labs\lab_t012_dismissible_list.dart lib\learning\lessons.dart test\widget_test.dart`: 통과
+- `flutter analyze`: 통과, `No issues found!`
+- `flutter test`: 통과, `All tests passed!`
+
+사용자 런타임 체크리스트:
+
+- [ ] `flutter run -d chrome` 또는 IDE 실행 버튼으로 앱을 실행한다.
+- [ ] 메인 그리드에 `T-012` 버튼이 등록되어 있는지 확인한다.
+- [ ] `T-012` 버튼을 눌렀을 때 `T-012 Dismissible List` 화면으로 이동하는지 확인한다.
+- [ ] `Read docs`, `Write code`, `Run tests` 항목이 보이는지 확인한다.
+- [ ] `Read docs` 항목을 옆으로 밀면 항목이 사라지는지 확인한다.
+- [ ] 삭제 후 `Remaining items: 2`와 `Removed: Read docs`가 보이는지 확인한다.
+- [ ] 뒤로가기 버튼으로 홈으로 돌아오는지 확인한다.
+
+개념 노트:
+
+- `docs/concepts/t012-dismissible-list.md`
 
 ### T-011 GestureDetector와 InkWell로 탭 제스처 다루기
 

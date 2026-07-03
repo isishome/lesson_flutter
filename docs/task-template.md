@@ -1,4 +1,4 @@
-﻿# Task Template
+# Task Template
 
 아래 템플릿은 새 학습 태스크를 등록할 때 사용합니다.
 
@@ -46,6 +46,7 @@
 - [ ] `flutter test` 통과
 - [ ] 런타임 확인 완료
 - [ ] `docs/progress.md` 기록
+- [ ] 커밋 여부 사용자 확인
 
 ### 회고
 

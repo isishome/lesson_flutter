@@ -10,6 +10,7 @@ import 'package:first_flutter_app/learning/labs/lab_t008_dropdown_selection.dart
 import 'package:first_flutter_app/learning/labs/lab_t009_radio_selection.dart';
 import 'package:first_flutter_app/learning/labs/lab_t010_slider_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t011_gesture_input.dart';
+import 'package:first_flutter_app/learning/labs/lab_t012_dismissible_list.dart';
 
 class LessonDefinition {
   const LessonDefinition({
@@ -91,5 +92,11 @@ final List<LessonDefinition> lessons = [
     title: 'Gesture Input',
     summary: 'GestureDetector and InkWell',
     builder: (_) => const LabT011GestureInput(),
+  ),
+  LessonDefinition(
+    id: 'T-012',
+    title: 'Dismissible List',
+    summary: 'Dismissible and swipe delete',
+    builder: (_) => const LabT012DismissibleList(),
   ),
 ];

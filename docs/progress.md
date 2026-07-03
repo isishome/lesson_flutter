@@ -412,3 +412,28 @@
 - 체크리스트는 `docs/tasks.md`의 T-011 완료 기록에 남겼습니다.
 
 
+
+## T-012 완료 기록
+
+날짜: 2026-07-03
+
+태스크: Dismissible로 스와이프 삭제 리스트 만들기
+
+구현:
+
+- `lib/learning/labs/lab_t012_dismissible_list.dart`에 `LabT012DismissibleList`를 추가했습니다.
+- `lib/learning/lessons.dart`에 T-012 레슨을 등록했습니다.
+- `Dismissible`, `ListView.builder`, `ListTile`, `ValueKey`, `onDismissed`, `setState()`를 사용했습니다.
+- `test/widget_test.dart`에서 스와이프 후 항목 삭제, 남은 개수, 삭제 결과 문구 변경을 검증했습니다.
+- `docs/concepts/t012-dismissible-list.md`에 개념 설명을 추가했습니다.
+
+검증:
+
+- `dart format lib\learning\labs\lab_t012_dismissible_list.dart lib\learning\lessons.dart test\widget_test.dart`: 통과
+- `flutter analyze`: 통과, `No issues found!`
+- `flutter test`: 통과, `All tests passed!`
+
+런타임:
+
+- 사용자가 직접 확인합니다.
+- 체크리스트는 `docs/tasks.md`의 T-012 완료 기록에 남겼습니다.

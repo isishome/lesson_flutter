@@ -9,6 +9,7 @@ import 'package:first_flutter_app/learning/labs/lab_t008_dropdown_selection.dart
 import 'package:first_flutter_app/learning/labs/lab_t009_radio_selection.dart';
 import 'package:first_flutter_app/learning/labs/lab_t010_slider_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t011_gesture_input.dart';
+import 'package:first_flutter_app/learning/labs/lab_t012_dismissible_list.dart';
 import 'package:first_flutter_app/learning/home_screen.dart';
 import 'package:first_flutter_app/learning/lessons.dart';
 import 'package:first_flutter_app/learning/practice/practice_p001.dart';
@@ -32,8 +33,8 @@ void main() {
   ) async {
     await tester.pumpWidget(const MaterialApp(home: HomeScreen()));
 
-    expect(lessons.length, 11);
-    expect(lessons.last.id, 'T-011');
+    expect(lessons.length, 12);
+    expect(lessons.last.id, 'T-012');
     expect(practices.length, greaterThanOrEqualTo(1));
     expect(find.text('T-001'), findsOneWidget);
     expect(find.text('T-002'), findsOneWidget);
@@ -172,6 +173,24 @@ void main() {
     expect(find.text('Selected volume: 40'), findsNothing);
   });
 
+  testWidgets('T-012 removes an item with dismissible swipe', (tester) async {
+    await tester.pumpWidget(const MaterialApp(home: LabT012DismissibleList()));
+
+    expect(find.byType(Dismissible), findsNWidgets(3));
+    expect(find.text('Read docs'), findsOneWidget);
+    expect(find.text('Write code'), findsOneWidget);
+    expect(find.text('Run tests'), findsOneWidget);
+    expect(find.text('Remaining items: 3'), findsOneWidget);
+    expect(find.text('No item removed yet.'), findsOneWidget);
+
+    await tester.drag(find.text('Read docs'), const Offset(500, 0));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Read docs'), findsNothing);
+    expect(find.byType(Dismissible), findsNWidgets(2));
+    expect(find.text('Remaining items: 2'), findsOneWidget);
+    expect(find.text('Removed: Read docs'), findsOneWidget);
+  });
   testWidgets('T-011 records gesture detector and inkwell gestures', (
     tester,
   ) async {
