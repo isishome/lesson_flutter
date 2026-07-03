@@ -462,3 +462,28 @@
 
 - 사용자가 직접 확인합니다.
 - 체크리스트는 `docs/tasks.md`의 T-013 완료 기록에 남겼습니다.
+
+## T-014 완료 기록
+
+날짜: 2026-07-03
+
+태스크: Navigator.pop으로 결과 돌려주기
+
+구현:
+
+- `lib/learning/labs/lab_t014_navigation_result.dart`에 `LabT014NavigationResult`를 추가했습니다.
+- `lib/learning/lessons.dart`에 T-014 레슨을 등록했습니다.
+- `Navigator.push<String>()`, `MaterialPageRoute<String>`, `Navigator.pop(context, result)`, `Future` 결과 대기, `null` 결과 처리를 사용했습니다.
+- `test/widget_test.dart`에서 색상 선택 화면 이동, 결과 반환 후 상태 문구 갱신, 뒤로가기 취소 시 기존 상태 유지 여부를 검증했습니다.
+- `docs/concepts/t014-navigation-result.md`에 개념 설명을 추가했습니다.
+
+검증:
+
+- `dart format lib\learning\labs\lab_t014_navigation_result.dart lib\learning\lessons.dart test\widget_test.dart`: 통과
+- `flutter analyze`: 통과, `No issues found!`
+- `flutter test`: 통과, `All tests passed!`
+
+런타임:
+
+- 사용자가 직접 확인합니다.
+- 체크리스트는 `docs/tasks.md`의 T-014 완료 기록에 남겼습니다.

@@ -48,8 +48,52 @@
 | T-011 | GestureDetector와 InkWell로 탭 제스처 다루기 | 4 | Done | `lib/learning/labs/lab_t011_gesture_input.dart`, `test/widget_test.dart`, `docs/concepts/t011-gesture-input.md` |
 | T-012 | Dismissible로 스와이프 삭제 리스트 만들기 | 4 | Done | `lib/learning/labs/lab_t012_dismissible_list.dart`, `test/widget_test.dart`, `docs/concepts/t012-dismissible-list.md` |
 | T-013 | Navigator로 목록에서 상세 화면 이동하기 | 5 | Done | `lib/learning/labs/lab_t013_navigation_detail.dart`, `test/widget_test.dart`, `docs/concepts/t013-navigation-detail.md` |
+| T-014 | Navigator.pop으로 결과 돌려주기 | 5 | Done | `lib/learning/labs/lab_t014_navigation_result.dart`, `test/widget_test.dart`, `docs/concepts/t014-navigation-result.md` |
 
 ## Done
+
+### T-014 Navigator.pop으로 결과 돌려주기
+
+목표:
+
+- 새 화면에서 선택한 값을 이전 화면으로 돌려준다.
+- `Navigator.push<T>()`가 `Future<T?>`를 반환하는 구조를 익힌다.
+- `Navigator.pop(context, result)`로 route를 닫으면서 결과를 전달한다.
+- 뒤로가기처럼 결과가 없는 경우 `null`을 처리한다.
+
+구현 파일:
+
+- `lib/learning/labs/lab_t014_navigation_result.dart`
+- `lib/learning/lessons.dart`
+- `test/widget_test.dart`
+- `docs/concepts/t014-navigation-result.md`
+
+구현 결과:
+
+- `LabT014NavigationResult` 위젯을 추가했다.
+- T-014를 레슨 그리드에 등록했다.
+- `Choose color` 버튼을 누르면 색상 선택 화면으로 이동한다.
+- `Green` 같은 색상을 선택하면 이전 화면으로 돌아오며 `Selected color: Green` 문구가 표시된다.
+- 선택 화면에서 뒤로가기로 돌아오면 기존 선택값이 유지된다.
+
+검증 결과:
+
+- `dart format lib\learning\labs\lab_t014_navigation_result.dart lib\learning\lessons.dart test\widget_test.dart`: 통과
+- `flutter analyze`: 통과, `No issues found!`
+- `flutter test`: 통과, `All tests passed!`
+
+사용자 런타임 체크리스트:
+
+- [ ] `flutter run -d chrome` 또는 IDE 실행 버튼으로 앱을 실행한다.
+- [ ] 메인 그리드에 `T-014` 버튼이 등록되어 있는지 확인한다.
+- [ ] `T-014` 버튼을 눌렀을 때 `T-014 Navigation Result` 화면으로 이동하는지 확인한다.
+- [ ] `Choose color` 버튼을 누르면 `Choose a Color` 화면으로 이동하는지 확인한다.
+- [ ] `Green`을 선택하면 이전 화면으로 돌아오고 `Selected color: Green`이 보이는지 확인한다.
+- [ ] 다시 색상 선택 화면을 열고 뒤로가면 기존 선택값이 유지되는지 확인한다.
+
+개념 노트:
+
+- `docs/concepts/t014-navigation-result.md`
 
 ### T-013 Navigator로 목록에서 상세 화면 이동하기
 

@@ -11,6 +11,7 @@ import 'package:first_flutter_app/learning/labs/lab_t010_slider_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t011_gesture_input.dart';
 import 'package:first_flutter_app/learning/labs/lab_t012_dismissible_list.dart';
 import 'package:first_flutter_app/learning/labs/lab_t013_navigation_detail.dart';
+import 'package:first_flutter_app/learning/labs/lab_t014_navigation_result.dart';
 import 'package:first_flutter_app/learning/home_screen.dart';
 import 'package:first_flutter_app/learning/lessons.dart';
 import 'package:first_flutter_app/learning/practice/practice_p001.dart';
@@ -39,8 +40,8 @@ void main() {
   ) async {
     await tester.pumpWidget(const MaterialApp(home: HomeScreen()));
 
-    expect(lessons.length, 13);
-    expect(lessons.last.id, 'T-013');
+    expect(lessons.length, 14);
+    expect(lessons.last.id, 'T-014');
     expect(practices.length, greaterThanOrEqualTo(1));
     expect(find.text('T-001'), findsOneWidget);
     expect(find.text('T-002'), findsOneWidget);
@@ -188,6 +189,35 @@ void main() {
     expect(find.text('Selected volume: 40'), findsNothing);
   });
 
+  testWidgets('T-014 waits for navigation result and updates text', (
+    tester,
+  ) async {
+    await tester.pumpWidget(const MaterialApp(home: LabT014NavigationResult()));
+
+    expect(find.text('T-014 Navigation Result'), findsOneWidget);
+    expect(find.text('No color selected.'), findsOneWidget);
+
+    await tester.tap(find.text('Choose color'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Choose a Color'), findsOneWidget);
+    expect(find.text('Red'), findsOneWidget);
+    expect(find.text('Green'), findsOneWidget);
+    expect(find.text('Blue'), findsOneWidget);
+
+    await tester.tap(find.text('Green'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('T-014 Navigation Result'), findsOneWidget);
+    expect(find.text('Selected color: Green'), findsOneWidget);
+
+    await tester.tap(find.text('Choose color'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byTooltip('Back'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Selected color: Green'), findsOneWidget);
+  });
   testWidgets('T-013 opens detail screen and returns to list', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: LabT013NavigationDetail()));
 
